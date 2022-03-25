@@ -93,7 +93,7 @@ public class Main {
         else System.out.println("Таких людей в списке нет");
 
 
-        System.out.println("Введите фамилию человека,у которого нужно отредактировать имя");
+        System.out.println("Введите фамилию человека,у которого нужно отредактировать поле");
         String Fam1=sc.nextLine();
         int nom1=-1;
 
@@ -104,10 +104,51 @@ public class Main {
         {
             System.out.println("Это "
                     +ludi[nom1].Fam+"\t"+ludi[nom1].Name +"\t"+ludi[nom1].Rost+"см"+"\t"+ludi[nom1].Pol1);
-            System.out.println("Введите измененное имя");
-            ludi[nom1].Name = sc.nextLine();
-            System.out.println("Отредактированные данные "
-                    +ludi[nom1].Fam+"\t"+ludi[nom1].Name +"\t"+ludi[nom1].Rost+"см"+"\t"+ludi[nom1].Pol1);
+
+            System.out.println("1-фамилия, 2- имя, 3- пол, 4-рост");
+            int indexR = sc.nextInt();
+            sc.nextLine();
+            switch (indexR){
+                case 1:{
+                    System.out.println("Введите измененное фамилию");
+                    String newFam = sc.nextLine();
+                    ludi[nom1].Fam = newFam;
+                    System.out.println("Отредактированные данные "
+                            +ludi[nom1].Fam+"\t"+ludi[nom1].Name +"\t"+ludi[nom1].Rost+"см"+"\t"+ludi[nom1].Pol1);
+                    break;
+                }
+                case 2:{
+                    System.out.println("Введите измененное имя");
+                    String NewName = sc.nextLine();
+                    ludi[nom1].Name = NewName;
+                    System.out.println("Отредактированные данные "
+                            +ludi[nom1].Fam+"\t"+ludi[nom1].Name +"\t"+ludi[nom1].Rost+"см"+"\t"+ludi[nom1].Pol1);
+                    break;
+                }
+                case 3:{
+                    System.out.print("Введите пол: 1-мужчина, 2- женщина =>");
+                    ludi[nom1].Pol= (int) sc.nextDouble();
+                    if (ludi[nom1].Pol == 1){
+                        ludi[nom1].Pol1="Мужчина";
+                    }
+                    if (ludi[nom1].Pol == 2){
+                        ludi[nom1].Pol1="Женщина";
+                    }
+                    System.out.println("Отредактированные данные "
+                            +ludi[nom1].Fam+"\t"+ludi[nom1].Name +"\t"+ludi[nom1].Rost+"см"+"\t"+ludi[nom1].Pol1);
+                    break;
+                }
+                case 4:{
+                    System.out.println("Введите измененный рост");
+                    ludi[nom1].Rost = sc.nextInt();
+                    break;
+                }
+                default:{
+                    System.out.println("Нет такого поля");
+                    System.out.println("Отредактированные данные "
+                            +ludi[nom1].Fam+"\t"+ludi[nom1].Name +"\t"+ludi[nom1].Rost+"см"+"\t"+ludi[nom1].Pol1);
+                }
+            }
         }
     }
 }
